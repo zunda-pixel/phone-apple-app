@@ -1,0 +1,81 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "123" : {
+
+    },
+    "Add to Existing Contact" : {
+
+    },
+    "call" : {
+
+    },
+    "Calls" : {
+
+    },
+    "Contacts" : {
+
+    },
+    "Create New Contact" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Edit" : {
+
+    },
+    "Edit Favorites" : {
+
+    },
+    "Hello" : {
+
+    },
+    "Keypad" : {
+
+    },
+    "mail" : {
+
+    },
+    "Manage Filtering" : {
+
+    },
+    "Mark as Read" : {
+
+    },
+    "message" : {
+
+    },
+    "Missed" : {
+
+    },
+    "Name and Photo Sharing" : {
+
+    },
+    "pay" : {
+
+    },
+    "Search" : {
+
+    },
+    "Select" : {
+
+    },
+    "Select Mode" : {
+
+    },
+    "Spam" : {
+
+    },
+    "Unknown Callers" : {
+
+    },
+    "video" : {
+
+    },
+    "Voicemails" : {
+
+    }
+  },
+  "version" : "1.1"
+}
