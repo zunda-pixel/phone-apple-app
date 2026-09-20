@@ -53,7 +53,12 @@ struct ContentView: View {
         }
       }
     }
+    .tabViewStyle(.sidebarAdaptable)
     .searchable(text: $text)
+    #if !os(macOS)
+      .defaultAdaptableTabBarPlacement(.sidebar)
+      .defaultTabBarPlacement(.sidebar)
+    #endif
   }
 }
 
@@ -68,7 +73,7 @@ extension Text {
     tableName: String? = nil,
     comment: StaticString? = nil
   ) {
-    self.init(
+    self = Text(
       key,
       tableName: tableName,
       bundle: .module,

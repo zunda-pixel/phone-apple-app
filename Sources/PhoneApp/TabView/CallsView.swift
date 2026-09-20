@@ -16,7 +16,9 @@ struct User {
 
 struct CallsView: View {
   @State var mode: Mode = .missied
+    #if !os(macOS)
   @State var editMode: EditMode = .inactive
+    #endif
   @State var selectedHistoryIds: Set<History.ID> = []
   @State var histories: [History] = [
     .init(user: .init(name: "Text", icon: "Icon"), type: "phone", date: .now.addingTimeInterval(-1), successReceived: Bool.random()),
@@ -63,7 +65,6 @@ struct CallsView: View {
                 .foregroundStyle(.blue)
             }
             .buttonStyle(.glass)
-            .buttonSizing(.flexible)
           }
           .tag(history.id)
           .contextMenu {
@@ -103,9 +104,11 @@ struct CallsView: View {
           }
         }
       }
+        #if !os(macOS)
       .environment(\.editMode, $editMode)
+        #endif
       .navigationTitle("Calls")
-      .navigationBarTitleDisplayMode(.inline)
+      .toolbarTitleDisplayMode(.inline)
       .toolbar {
         #if !os(macOS)
         ToolbarItem(placement: .topBarLeading) {
@@ -140,7 +143,7 @@ struct CallsView: View {
           }
         }
         #endif
-        ToolbarItem(placement: .topBarTrailing) {
+        ToolbarItem(placement: .primaryAction) {
           Menu {
             Divider()
             Picker("Select Mode", selection: $mode) {
@@ -159,6 +162,7 @@ struct CallsView: View {
             Image(systemName: "line.3.horizontal.decrease")
           }
         }
+        #if !os(macOS)
         if self.editMode == .active {
           ToolbarItem(placement: .bottomBar) {
             Button(role: .destructive) {
@@ -177,6 +181,7 @@ struct CallsView: View {
             .disabled(self.selectedHistoryIds.isEmpty)
           }
         }
+        #endif
       }
     }
   }
